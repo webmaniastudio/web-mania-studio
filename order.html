@@ -1,0 +1,148 @@
+<!-- order.html -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark" data-accent="teal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.orderTitle">وب مانیا | سفارش</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <script defer src="js/i18n.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body data-page="order">
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M2 21 23 12 2 3l3 8 9 1-9 1z"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container">
+<a class="brand" href="index.html" aria-label="Web Mania">
+  <span class="brand-circle">
+    <img src="assets/logo.png" alt="Web Mania logo">
+  </span>
+  <span class="brand-name">Web Mania</span>
+</a>      <nav class="desktop-nav">
+        <a href="work.html" data-i18n="nav.work">نمونه‌کار</a>
+        <a href="templates.html" data-i18n="nav.templates">قالب‌ها</a>
+        <a href="services.html" data-i18n="nav.services">خدمات</a>
+        <a class="active cta" href="order.html" data-i18n="nav.order">سفارش</a>
+        <a href="faq.html" data-i18n="nav.faq">سوالات</a>
+        <a href="about.html" data-i18n="nav.about">درباره</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switch"><button class="lang-btn" data-lang="fa">فا</button><button class="lang-btn" data-lang="en">En</button></div>
+        <button id="themeBtn" class="icon-btn" aria-haspopup="dialog" aria-controls="themePanel" aria-expanded="false"><svg width="22" height="22"><use href="#i-palette"></use></svg></button>
+        <button id="openMenu" class="icon-btn mobile-only" aria-controls="mobileMenu" aria-expanded="false"><svg width="24" height="24"><use href="#i-menu"></use></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div id="themePanel" class="theme-panel" role="dialog" hidden>
+    <div class="theme-panel__header"><strong id="themeTitle" data-i18n="theme.title">تم و رنگ</strong><button id="closeTheme" class="icon-btn" aria-label="Close"><svg width="20" height="20"><use href="#i-close"></use></svg></button></div>
+    <div class="theme-panel__content">
+      <div class="theme-row"><span data-i18n="theme.mode">حالت:</span><button class="theme-mode" data-theme="dark" aria-pressed="true" data-i18n="theme.dark">تیره</button><button class="theme-mode" data-theme="light" aria-pressed="false" data-i18n="theme.light">روشن</button></div>
+      <div class="theme-row"><span data-i18n="theme.accent">رنگ تاکید:</span>
+        <div class="swatches">
+          <button class="swatch" data-accent="teal" style="--c:#14b8a6"></button>
+          <button class="swatch" data-accent="orange" style="--c:#ff7a00"></button>
+          <button class="swatch" data-accent="sky" style="--c:#5ec6ff"></button>
+          <button class="swatch" data-accent="purple" style="--c:#9b5de5"></button>
+          <button class="swatch" data-accent="neon" style="--c:#39ff14"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside id="mobileMenu" class="mobile-menu" hidden>
+    <div class="mobile-menu__header">
+      <strong>Web Mania</strong>
+      <button id="closeMenu" class="icon-btn" aria-label="Close"><svg width="22" height="22"><use href="#i-close"></use></svg></button>
+    </div>
+    <nav class="mobile-menu__nav">
+      <a href="work.html" data-i18n="nav.work">نمونه‌کار</a>
+      <a href="templates.html" data-i18n="nav.templates">قالب‌ها</a>
+      <a href="services.html" data-i18n="nav.services">خدمات</a>
+      <a class="active" href="order.html" data-i18n="nav.order">سفارش</a>
+      <a href="faq.html" data-i18n="nav.faq">سوالات</a>
+      <a href="about.html" data-i18n="nav.about">درباره</a>
+    </nav>
+  </aside>
+
+  <main class="container">
+    <h1 data-i18n="order.title">سفارش پروژه</h1>
+    <p data-i18n="order.subtitle">اطلاعات خود را وارد کنید؛ ارسال نهایی از ایمیل یا شبکه‌های اجتماعی انجام می‌شود.</p>
+
+    <form id="orderForm" novalidate>
+      <div class="grid-form">
+        <label>
+          <span data-i18n="form.firstName">نام</span>
+          <input id="firstName" name="firstName" required data-i18n-placeholder="form.placeholders.firstName" placeholder="نام شما">
+        </label>
+        <label>
+          <span data-i18n="form.lastName">نام خانوادگی</span>
+          <input id="lastName" name="lastName" required data-i18n-placeholder="form.placeholders.lastName" placeholder="نام خانوادگی">
+        </label>
+        <label>
+          <span data-i18n="form.email">ایمیل</span>
+          <input id="email" name="email" type="email" required data-i18n-placeholder="form.placeholders.email" placeholder="example@email.com">
+        </label>
+        <label>
+          <span data-i18n="form.mobile">موبایل</span>
+          <input id="mobile" name="mobile" inputmode="tel" required data-i18n-placeholder="form.placeholders.mobile" placeholder="09xxxxxxxxx">
+        </label>
+        <label class="full">
+          <span data-i18n="form.package">خدمت/پکیج</span>
+          <select id="package" name="package" required>
+            <option value="" data-i18n="form.select">انتخاب کنید…</option>
+            <option value="لندینگ استارت" data-i18n="pricing.packages.0.name">لندینگ استارت</option>
+            <option value="وب‌سایت شرکتی" data-i18n="pricing.packages.1.name">وب‌سایت شرکتی</option>
+            <option value="فروشگاه حرفه‌ای" data-i18n="pricing.packages.2.name">فروشگاه حرفه‌ای</option>
+            <option value="مشاوره/سفارشی" data-i18n="form.custom">مشاوره/سفارشی</option>
+          </select>
+        </label>
+        <label class="full">
+          <span data-i18n="form.message">توضیحات (اختیاری)</span>
+          <textarea id="message" name="message" rows="4" data-i18n-placeholder="form.placeholders.message" placeholder="چند خط درباره نیازتان…"></textarea>
+        </label>
+      </div>
+
+      <div class="errors">
+        <div id="err-firstName" class="err"></div>
+        <div id="err-lastName" class="err"></div>
+        <div id="err-email" class="err"></div>
+        <div id="err-mobile" class="err"></div>
+        <div id="err-package" class="err"></div>
+      </div>
+
+      <div class="row">
+        <button class="btn" type="submit" data-i18n="form.submit">ارسال درخواست</button>
+        <a id="mailtoLink" class="btn ghost" href="#" data-i18n="form.mailto">ارسال با ایمیل</a>
+      </div>
+
+      <div id="formSuccess" class="success" hidden>
+        <p data-i18n="form.success">درخواست شما ذخیره شد. یک کانال برای ارسال انتخاب کنید:</p>
+        <div class="row">
+          <a class="btn" id="goTelegram" target="_blank" rel="noopener" href="https://t.me/Webmania_admin">Telegram</a>
+          <a class="btn ghost" id="goInstagram" target="_blank" rel="noopener" href="https://ig.me/m/webmania.studio">Instagram</a>
+          <a class="btn ghost" id="goRubika" target="_blank" rel="noopener" href="https://rubika.ir/Webmania_admin">Rubika</a>
+          <a class="btn ghost" id="goPhone" href="tel:+989055145596">Call</a>
+        </div>
+      </div>
+    </form>
+
+    <h2 data-i18n="order.shortcutsTitle">میانبر سفارش</h2>
+    <div class="shortcuts">
+      <a class="qbtn" href="https://t.me/Webmania_admin" target="_blank" rel="noopener">Telegram</a>
+      <a class="qbtn" href="https://ig.me/m/webmania.studio" target="_blank" rel="noopener">Instagram</a>
+      <a class="qbtn" href="https://rubika.ir/Webmania_admin" target="_blank" rel="noopener">Rubika</a>
+      <a class="qbtn" href="tel:+989055145596">+98 905 514 5596</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><a href="index.html">Web Mania</a><small>© <span id="year"></span></small></div>
+  </footer>
+</body>
+</html>

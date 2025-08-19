@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تماس و مشاوره | Web Mania</title>
+  <meta name="description" content="با Web Mania تماس بگیرید: تلگرام، اینستاگرام، روبیکا، گیت‌هاب و فرم مشاوره.">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="contact" data-theme="dark" data-accent="neongreen">
+  <header class="site-header">
+    <div class="container">
+<a class="brand" href="index.html" aria-label="Web Mania">
+  <span class="brand-circle">
+    <img src="assets/logo.png" alt="Web Mania logo">
+  </span>
+  <span class="brand-name">Web Mania</span>
+</a>      <nav class="site-nav">
+        <a href="services.html">خدمات</a>
+        <a href="portfolio.html">نمونه‌کار</a>
+        <a href="pricing.html">پکیج‌ها</a>
+        <a href="about.html">درباره</a>
+        <a href="faq.html">سوالات</a>
+        <a class="active" href="contact.html" class="btn-primary">تماس</a>
+      </nav>
+      <div class="hdr-actions">
+        <button id="langBtn" class="icon-btn">🌐</button>
+        <button id="themeBtn" class="icon-btn">🎨</button>
+      </div>
+      <button class="menu-toggle" aria-label="منو">☰</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>تماس و مشاوره</h1>
+      <p>سریع‌ترین راه ارتباط: تلگرام یا فرم زیر.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="card">
+        <h3>فرم مشاوره</h3>
+        <form id="contactForm" class="form-card">
+          <div class="grid-2">
+            <div>
+              <label>نام</label>
+              <input type="text" name="name" required placeholder="نام شما">
+            </div>
+            <div>
+              <label>شماره همراه</label>
+              <input type="tel" name="phone" required placeholder="09xxxxxxxxx">
+            </div>
+          </div>
+          <div>
+            <label>موضوع</label>
+            <input type="text" name="subject" placeholder="موضوع مکاتبه">
+          </div>
+          <div>
+            <label>پیام</label>
+            <textarea name="message" rows="5" placeholder="چطور می‌تونیم کمک کنیم؟"></textarea>
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="btn-primary">ارسال</button>
+            <a class="btn-ghost" id="contactTelegram" href="https://t.me/+989055145596" target="_blank">تلگرام</a>
+            <a class="btn-ghost" id="contactSms" href="sms:+989055145596?&body=سلام%20Web%20Mania">ارسال SMS</a>
+          </div>
+          <p class="hint">ارسال فرم نیاز به بک‌اند دارد؛ فعلاً از تلگرام/SMS استفاده کن تا JS سفارشی را اضافه کنیم.</p>
+        </form>
+      </div>
+      <div class="card">
+        <h3>اطلاعات تماس</h3>
+        <ul class="list">
+          <li><strong>تلگرام:</strong> <a href="https://t.me/+989055145596" target="_blank">t.me/+989055145596</a></li>
+          <li><strong>اینستاگرام:</strong> <a href="https://www.instagram.com/webmania.studio" target="_blank">@webmania.studio</a></li>
+          <li><strong>روبیکا:</strong> <a href="https://rubika.ir/Webmania_admin" target="_blank">rubika.ir/Webmania_admin</a></li>
+          <li><strong>گیت‌هاب:</strong> <a href="https://github.com/webmaniastudio" target="_blank">github.com/webmaniastudio</a></li>
+          <li><strong>تلفن:</strong> <a href="tel:+989055145596">+98 905 514 5596</a></li>
+          <li><strong>ایمیل:</strong> <a href="mailto:hello@webmania.studio">hello@webmania.studio</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="copy">© <span id="year"></span> Web Mania</div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

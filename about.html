@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>درباره ما | Web Mania</title>
+  <meta name="description" content="با Web Mania آشنا شوید — تیمی چندتخصصی برای طراحی و توسعه وب‌سایت‌های درجه یک.">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="about" data-theme="dark" data-accent="neongreen">
+  <!-- Shared header -->
+  <header class="site-header">
+    <div class="container">
+<a class="brand" href="index.html" aria-label="Web Mania">
+  <span class="brand-circle">
+    <img src="assets/logo.png" alt="Web Mania logo">
+  </span>
+  <span class="brand-name">Web Mania</span>
+</a>      <nav class="site-nav">
+        <a href="services.html">خدمات</a>
+        <a href="portfolio.html">نمونه‌کار</a>
+        <a href="pricing.html">پکیج‌ها</a>
+        <a class="active" href="about.html">درباره</a>
+        <a href="faq.html">سوالات</a>
+        <a href="contact.html" class="btn-primary">مشاوره</a>
+      </nav>
+      <div class="hdr-actions">
+        <button id="langBtn" class="icon-btn" title="زبان">🌐</button>
+        <button id="themeBtn" class="icon-btn" title="تم">🎨</button>
+      </div>
+      <button class="menu-toggle" aria-label="منو">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero with-3d">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="container">
+      <h1>درباره Web Mania</h1>
+      <p>ما ترکیبی از خلاقیت، مهندسی و وسواس کیفیت هستیم.</p>
+    </div>
+  </section>
+
+  <!-- About content with animations -->
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <h2>کی هستیم؟</h2>
+        <p>
+          Web Mania تیمی متخصص در طراحی و توسعه وب‌سایت‌های مدرن است. ما پروژه‌ها را از مرحله ایده و
+          تحقیق تا طراحی UI/UX، توسعه فرانت و بک، سئو، استقرار و پشتیبانی پیش می‌بریم.
+        </p>
+        <ul class="checks">
+          <li>فرایند استاندارد و چابک</li>
+          <li>کیفیت کد و مستندسازی</li>
+          <li>تمرکز بر سرعت و سئو</li>
+        </ul>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat"><span class="num" data-to="100">0</span><span>+ پروژه موفق</span></div>
+        <div class="stat"><span class="num" data-to="14">0</span><span>روز زمان تحویل استاندارد</span></div>
+        <div class="stat"><span class="num" data-to="98">0</span><span>% رضایت مشتری</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section alt">
+    <div class="container">
+      <h2>مسیر ما</h2>
+      <div class="timeline">
+        <div class="t-item reveal">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <h3>شروع</h3>
+            <p>شروع فعالیت با تمرکز بر فرانت‌اند و تجربه کاربری.</p>
+          </div>
+        </div>
+        <div class="t-item reveal">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <h3>گسترش خدمات</h3>
+            <p>افزودن بک‌اند، سئو، فروشگاه و DevOps به سبد خدمات.</p>
+          </div>
+        </div>
+        <div class="t-item reveal">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <h3>مقیاس</h3>
+            <p>تحویل پروژه‌های بزرگ با SLA و مانیتورینگ 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section">
+    <div class="container values grid-3">
+      <div class="value reveal">
+        <h3>کیفیت</h3>
+        <p>کد تمیز، تست‌شده و مقیاس‌پذیر.</p>
+      </div>
+      <div class="value reveal">
+        <h3>سرعت</h3>
+        <p>تحویل سریع بدون فدا کردن کیفیت.</p>
+      </div>
+      <div class="value reveal">
+        <h3>شفافیت</h3>
+        <p>گزارش‌های منظم، قرارداد شفاف و پشتیبانی واقعی.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="container cta-box">
+      <div>
+        <h3>بیایید درباره پروژه‌ات صحبت کنیم</h3>
+        <p>جلسه مشاوره رایگان بگیر و بهترین مسیر را انتخاب کن.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn-primary" href="services.html#quote">درخواست قیمت</a>
+        <a class="btn-ghost" href="https://t.me/+989055145596" target="_blank">تلگرام</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="copy">© <span id="year"></span> Web Mania</div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

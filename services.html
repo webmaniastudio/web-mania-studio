@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>خدمات | Web Mania</title>
+  <meta name="description" content="لیست کامل خدمات Web Mania: طراحی، توسعه، فروشگاه، سئو، پشتیبانی و بیشتر.">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="services" data-theme="dark" data-accent="neongreen">
+  <header class="site-header">
+    <div class="container">
+<a class="brand" href="index.html" aria-label="Web Mania">
+  <span class="brand-circle">
+    <img src="assets/logo.png" alt="Web Mania logo">
+  </span>
+  <span class="brand-name">Web Mania</span>
+</a>      <nav class="site-nav">
+        <a class="active" href="services.html">خدمات</a>
+        <a href="portfolio.html">نمونه‌کار</a>
+        <a href="pricing.html">پکیج‌ها</a>
+        <a href="about.html">درباره</a>
+        <a href="faq.html">سوالات</a>
+        <a href="contact.html" class="btn-primary">مشاوره</a>
+      </nav>
+      <div class="hdr-actions">
+        <button id="langBtn" class="icon-btn">🌐</button>
+        <button id="themeBtn" class="icon-btn">🎨</button>
+      </div>
+      <button class="menu-toggle" aria-label="منو">☰</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>خدمات ما</h1>
+      <p>هرآنچه برای راه‌اندازی و رشد وب‌سایت نیاز دارید.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-3 cards">
+      <a id="design" class="card">
+        <h3>طراحی UI/UX</h3>
+        <ul>
+          <li>طراحی هویت بصری و کیت UI</li>
+          <li>طراحی صفحات کلیدی و حالت‌های ریسپانسیو</li>
+          <li>پروتوتایپ و تست کاربری</li>
+        </ul>
+      </a>
+      <a id="development" class="card">
+        <h3>توسعه فرانت‌اند و بک‌اند</h3>
+        <ul>
+          <li>HTML/CSS/JS، SPA و SSR</li>
+          <li>Node.js/Nest/Express، دیتابیس</li>
+          <li>پنل ادمین و احراز هویت</li>
+        </ul>
+      </a>
+      <a id="ecommerce" class="card">
+        <h3>فروشگاه اینترنتی</h3>
+        <ul>
+          <li>سبد خرید، پرداخت امن</li>
+          <li>مدیریت محصول، موجودی، فاکتور</li>
+          <li>کوپن، حمل‌ونقل و مالیات</li>
+        </ul>
+      </a>
+      <a id="seo" class="card">
+        <h3>سئو و بهینه‌سازی</h3>
+        <ul>
+          <li>Core Web Vitals و Performance</li>
+          <li>سئو تکنیکال و ساختار</li>
+          <li>استراتژی محتوا و اسکیما</li>
+        </ul>
+      </a>
+      <a id="support" class="card">
+        <h3>پشتیبانی و نگهداری</h3>
+        <ul>
+          <li>امنیت، بکاپ و مانیتورینگ</li>
+          <li>به‌روزرسانی و توسعه مستمر</li>
+          <li>آموزش تیم شما</li>
+        </ul>
+      </a>
+      <a id="branding" class="card">
+        <h3>برندسازی و محتوا</h3>
+        <ul>
+          <li>کپی‌رایتینگ و لندینگ</li>
+          <li>بلاگ و شبکه‌های اجتماعی</li>
+          <li>طراحی لوگو و گایدلاین</li>
+        </ul>
+      </a>
+    </div>
+  </section>
+
+  <!-- Quote / Request panel -->
+  <section id="quote" class="section alt">
+    <div class="container">
+      <h2>درخواست قیمت و پیشنهاد</h2>
+      <p class="section-sub">خدمات موردنظر را انتخاب کن، بقیه‌اش با ما.</p>
+      <form id="quoteForm" class="form-card">
+        <div class="grid-2">
+          <div>
+            <label>نام</label>
+            <input type="text" name="firstName" placeholder="نام" required>
+          </div>
+          <div>
+            <label>نام خانوادگی</label>
+            <input type="text" name="lastName" placeholder="نام خانوادگی" required>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <label>شماره همراه</label>
+            <input type="tel" name="phone" placeholder="09xxxxxxxxx" required>
+          </div>
+          <div>
+            <label>ایمیل (اختیاری)</label>
+            <input type="email" name="email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div>
+          <label>خدمات موردنظر</label>
+          <div class="chips">
+            <label><input type="checkbox" name="services" value="طراحی UI/UX"> طراحی UI/UX</label>
+            <label><input type="checkbox" name="services" value="توسعه فرانت‌اند"> توسعه فرانت‌اند</label>
+            <label><input type="checkbox" name="services" value="توسعه بک‌اند"> توسعه بک‌اند</label>
+            <label><input type="checkbox" name="services" value="فروشگاه"> فروشگاه</label>
+            <label><input type="checkbox" name="services" value="سئو"> سئو</label>
+            <label><input type="checkbox" name="services" value="پشتیبانی"> پشتیبانی</label>
+            <label><input type="checkbox" name="services" value="محتوا/برندینگ"> محتوا/برندینگ</label>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <label>بودجه تقریبی</label>
+            <select name="budget">
+              <option value="نامشخص">نامشخص</option>
+              <option value="10-30">10 تا 30 میلیون</option>
+              <option value="30-80">30 تا 80 میلیون</option>
+              <option value="80-150">80 تا 150 میلیون</option>
+              <option value="150+">150 میلیون به بالا</option>
+            </select>
+          </div>
+          <div>
+            <label>زمان‌بندی</label>
+            <select name="timeline">
+              <option value="عادی">عادی</option>
+              <option value="فوری">فوری</option>
+              <option value="انعطاف‌پذیر">انعطاف‌پذیر</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label>توضیحات پروژه</label>
+          <textarea name="message" rows="4" placeholder="کمی درباره نیازها و هدف پروژه توضیح بده..."></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn-primary">ارسال و دریافت قیمت</button>
+          <button type="button" class="btn-ghost" id="sendTelegram">ارسال از تلگرام</button>
+          <a class="btn-ghost" id="sendSms" href="#">ارسال SMS</a>
+        </div>
+        <p class="hint">بدون بک‌اند: داده‌ها در دستگاه شما پردازش می‌شود. برای ارسال به تلگرام، لینک با متن آماده ساخته می‌شود.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ teaser -->
+  <section class="section">
+    <div class="container">
+      <h2>سوالات متداول</h2>
+      <div class="accordion">
+        <details>
+          <summary>مدت زمان اجرای پروژه چقدر است؟</summary>
+          <p>بسته به دامنه کار، بین 10 تا 30 روز؛ پروژه‌های سفارشی بزرگ‌تر طبق برنامه.</p>
+        </details>
+        <details>
+          <summary>آیا سئو هم انجام می‌دهید؟</summary>
+          <p>بله، سئو تکنیکال، ساختار محتوا و بهینه‌سازی سرعت جزو خدمات ماست.</p>
+        </details>
+        <details>
+          <summary>پشتیبانی بعد از تحویل چطور است؟</summary>
+          <p>پکیج‌های پشتیبانی ماهانه با SLA داریم.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="copy">© <span id="year"></span> Web Mania</div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

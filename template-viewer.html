@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>نمایش قالب | Web Mania</title>
+  <meta name="description" content="ویوئر تعاملی برای مشاهده آنلاین قالب‌ها.">
+  <style>
+    :root{
+      --bg:#0b0f17; --layer:#0f1422; --surface:#131a2a; --line:#1b2335; --text:#e8edf7; --muted:#aeb7cb; --accent:#00ff95;
+      --toolbarH: 56px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f5f7fb; --layer:#ffffff; --surface:#ffffff; --line:#e6ebf5; --text:#1e2434; --muted:#5d6881; }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:inherit; text-decoration:none}
+
+    .viewer-bar{
+      position:sticky; top:0; z-index:10;
+      display:flex; align-items:center; gap:8px;
+      background:var(--layer); border-bottom:1px solid var(--line);
+      padding:10px 12px;
+    }
+    .title{font-weight:800; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .spacer{flex:1}
+    .vbtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:38px; height:38px; border-radius:10px; border:1px solid var(--line);
+      background:var(--surface); color:var(--text); cursor:pointer;
+      transition:background .2s, border-color .2s, transform .08s;
+    }
+    .vbtn:hover{ background:#1a2235; border-color:#2a3550 }
+    .vbtn.active{ outline:2px solid color-mix(in srgb, var(--accent) 40%, transparent); outline-offset:2px }
+    .vbtn svg{ width:20px; height:20px; }
+
+    /* Wrap with scroll (for mobile) */
+    .viewer-wrap{
+      height: calc(100dvh - var(--toolbarH));
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      background: color-mix(in srgb, var(--surface) 60%, var(--bg));
+    }
+    .viewer-iframe{
+      display:block; border:0; background:#000;
+      width:100%; height:calc(100dvh - var(--toolbarH));
+    }
+    /* When a device size is set, we center the iframe and allow horizontal scroll */
+    .sized .viewer-iframe{
+      margin: 0 auto; display:block;
+    }
+
+    /* Status notice */
+    #vStatus{
+      position:fixed; top:calc(var(--toolbarH) + 8px); inset-inline:0; margin:auto; z-index:20;
+      width:max-content; max-width:calc(100% - 24px);
+      background:var(--layer); border:1px solid var(--line); color:var(--text);
+      padding:8px 12px; border-radius:10px; display:none; font-size:14px;
+      box-shadow:0 8px 24px rgba(0,0,0,.25);
+    }
+
+    /* Small screens: keep bar compact */
+    @media (max-width:480px){
+      .title{ max-width: 40vw; }
+    }
+  </style>
+</head>
+<body>
+  <header class="viewer-bar">
+    <div class="title" id="vTitle">Template</div>
+    <div class="spacer"></div>
+    <!-- Icons: Full, Laptop, Tablet, Mobile, Open -->
+    <button class="vbtn" data-size="full" title="Full">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M8 3H5a2 2 0 0 0-2 2v3m0 6v3a2 2 0 0 0 2 2h3m8-18h3a2 2 0 0 1 2 2v3m0 6v3a2 2 0 0 1-2 2h-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="vbtn" data-size="laptop" title="Laptop">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 17h18M5 7h14a1 1 0 0 1 1 1v9H4V8a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="vbtn" data-size="tablet" title="Tablet">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="6" y="3" width="12" height="18" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+    </button>
+    <button class="vbtn" data-size="mobile" title="Mobile">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="8" y="3" width="8" height="18" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+    </button>
+    <a id="vOpen" class="vbtn" href="#" target="_blank" rel="noopener" title="Open in new tab">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M14 3h7v7m0-7L10 14m-3-4H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </header>
+
+  <div id="vStatus">امکان نمایش داخل صفحه محدود شده. Open را بزنید.</div>
+
+  <div class="viewer-wrap" id="vWrap">
+    <iframe id="vFrame" class="viewer-iframe" src="about:blank" title="Template Preview" referrerpolicy="no-referrer"></iframe>
+  </div>
+
+  <script>
+    (function(){
+      const p = new URLSearchParams(location.search);
+      const raw = p.get('url');
+      const title = decodeURIComponent(p.get('title')||'Template');
+      const vTitle = document.getElementById('vTitle');
+      const frame = document.getElementById('vFrame');
+      const open = document.getElementById('vOpen');
+      const status = document.getElementById('vStatus');
+      const wrap = document.getElementById('vWrap');
+      vTitle.textContent = title;
+
+      // Normalize URL (http->https, github.com->github.io, ensure trailing slash)
+      function normalize(u){
+        try{
+          const url = new URL(u, location.href);
+          if (url.protocol === 'http:') url.protocol = 'https:';
+          if (url.hostname === 'github.com') {
+            const [user, repo] = url.pathname.split('/').filter(Boolean);
+            return `https://${user}.github.io/${repo}/`;
+          }
+          if (!url.pathname.endsWith('/')) url.pathname += '/';
+          return url.href;
+        }catch{ return u; }
+      }
+
+      const url = normalize(raw || '');
+      if (url) { frame.src = url; open.href = url; }
+
+      // Toolbar height -> CSS var
+      const bar = document.querySelector('.viewer-bar');
+      function setToolbarH(){ document.documentElement.style.setProperty('--toolbarH', bar.offsetHeight + 'px'); }
+      setToolbarH(); window.addEventListener('resize', setToolbarH);
+
+      // Load status (blocked iframe detection)
+      let loaded = false;
+      frame.addEventListener('load', () => { loaded = true; if (status) status.style.display = 'none'; }, {once:false});
+      setTimeout(() => {
+        if (!loaded && status) status.style.display = 'block';
+      }, 2500);
+
+      // Device sizes with icons
+      const sizes = {
+        full: '100%',
+        laptop: 1366,
+        tablet: 834,
+        mobile: 390
+      };
+      function setActive(btn){
+        document.querySelectorAll('.vbtn[data-size]').forEach(b=>b.classList.toggle('active', b===btn));
+      }
+      document.querySelectorAll('.vbtn[data-size]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const k = btn.dataset.size;
+          if (k === 'full') {
+            wrap.classList.remove('sized');
+            frame.style.width = '100%';
+            frame.style.margin = '0';
+          } else {
+            wrap.classList.add('sized');
+            frame.style.width = (sizes[k] || 1000) + 'px';
+            frame.style.margin = '0 auto';
+          }
+          setActive(btn);
+          // Scroll to top after change to avoid weird offsets on mobile
+          wrap.scrollTo({left:0, top:0, behavior:'smooth'});
+        });
+      });
+      // Default: full active
+      const fullBtn = document.querySelector('.vbtn[data-size="full"]');
+      if (fullBtn) { fullBtn.classList.add('active'); }
+
+    })();
+  </script>
+</body>
+</html>
